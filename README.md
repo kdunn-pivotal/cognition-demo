@@ -5,9 +5,9 @@ A simple demo showing a Data API development pattern via Spring Boot Application
 ### Libraries used:
 
 ##### Data API:
-    - Spring Starter Web
-    - Spring Data JPA
+- Spring Starter Web
+- Spring Data JPA
 
 ##### Frontend UI:
-    - [D3.js](https://d3js.org)
-    - [Sigma.js](http://sigmajs.org/)
+- [D3.js](https://d3js.org)
+- [Sigma.js](http://sigmajs.org/)
