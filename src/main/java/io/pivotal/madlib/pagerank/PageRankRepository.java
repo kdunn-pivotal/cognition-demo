@@ -44,8 +44,8 @@ class PageRankRepository {
     
     public
     List<Edge> getNEdges(Integer topN) {
-        String query = "SELECT distinct dest_address AS target, src_address AS source" 
-                + " FROM nfint ";
+        String query = "SELECT dest_address AS target, src_address AS source, count(*)" 
+                + " FROM nfint GROUP BY 1, 2";
         
         if (topN > 0) {
             query = query + " LIMIT " + topN.toString();
@@ -58,7 +58,8 @@ class PageRankRepository {
         for (Map<String, Object> row : rows) {
             Long t = Long.parseLong(((String)row.get("target")).replace(".", ""));
             Long s = Long.parseLong(((String)row.get("source")).replace(".", ""));
-            Edge r = new Edge(t, s);
+            Long w = (Long)row.get("count");
+            Edge r = new Edge(t, s, w);
             
             results.add(r);
         }
